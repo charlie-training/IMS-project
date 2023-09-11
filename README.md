@@ -1,7 +1,7 @@
 Coverage: 34%
 # Project Title
 
-One Paragraph of project description goes here
+This is an Information Management System project that has been modelled on a banana shop that sells only bananas of varying types. It has basic CRUD functionality for Customers, Orders and items.
 
 ## Getting Started
 
