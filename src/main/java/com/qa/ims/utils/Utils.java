@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Utils {
-	
+
 	private static final Logger LOGGER = LogManager.getLogger();
 
 	private final Scanner scanner;
@@ -32,6 +32,34 @@ public class Utils {
 			}
 		} while (longInput == null);
 		return longInput;
+	}
+
+	public float getFloat() {
+		String input = null;
+		float floatInput = 0.0f;
+		do {
+			try {
+				input = getString();
+				floatInput = Float.parseFloat(input);
+			} catch (NumberFormatException nfe) {
+				LOGGER.info("Error - Please enter a float");
+			}
+		} while (floatInput == 0.0f);
+		return floatInput;
+	}
+
+	public int getInt() {
+		String input = null;
+		int intInput = 0;
+		do {
+			try {
+				input = getString();
+				intInput = Integer.parseInt(input);
+			} catch (NumberFormatException nfe) {
+				LOGGER.info("Error - Please enter an integer");
+			}
+		} while (intInput == 0);
+		return intInput;
 	}
 
 	public String getString() {
