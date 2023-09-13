@@ -62,7 +62,7 @@ public class Orderline {
 
 	@Override
 	public String toString() {
-		return "id: " + id + " item ID: " + item_id + " amount: " + amount + "line total: " + line_total;
+		return "id: " + id + " | item ID: " + item_id + " | amount: " + amount + " | line total: " + line_total;
 	}
 
 	@Override
