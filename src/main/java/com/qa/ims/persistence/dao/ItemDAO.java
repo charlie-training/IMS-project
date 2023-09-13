@@ -24,7 +24,7 @@ public class ItemDAO implements Dao<Item> {
 		String variety = resultSet.getString("variety");
 		String origin = resultSet.getString("origin");
         float price = resultSet.getFloat("price");
-        float caloriesPer100g = resultSet.getFloat("caloriesPer100g");
+        float caloriesPer100g = resultSet.getFloat("calories_per_100g");
         String vibe = resultSet.getString("vibe");
 		return new Item(id, variety, origin, price, caloriesPer100g, vibe);
 	}
