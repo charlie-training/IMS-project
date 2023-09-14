@@ -15,17 +15,17 @@ import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.DBUtils;
 
 public class ItemDAO implements Dao<Item> {
-    
-    public static final Logger LOGGER = LogManager.getLogger();
+
+	public static final Logger LOGGER = LogManager.getLogger();
 
 	@Override
 	public Item modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("id");
 		String variety = resultSet.getString("variety");
 		String origin = resultSet.getString("origin");
-        float price = resultSet.getFloat("price");
-        float caloriesPer100g = resultSet.getFloat("calories_per_100g");
-        String vibe = resultSet.getString("vibe");
+		float price = resultSet.getFloat("price");
+		float caloriesPer100g = resultSet.getFloat("calories_per_100g");
+		String vibe = resultSet.getString("vibe");
 		return new Item(id, variety, origin, price, caloriesPer100g, vibe);
 	}
 
@@ -73,12 +73,13 @@ public class ItemDAO implements Dao<Item> {
 	public Item create(Item item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO items(variety, origin, price, calories_per_100g, vibe) VALUES (?, ?, ?, ?, ?)");) {
+						.prepareStatement(
+								"INSERT INTO items(variety, origin, price, calories_per_100g, vibe) VALUES (?, ?, ?, ?, ?)");) {
 			statement.setString(1, item.getVariety());
 			statement.setString(2, item.getOrigin());
-            statement.setFloat(3, item.getPrice());
-            statement.setFloat(4, item.getCaloriesPer100g());
-            statement.setString(5, item.vibeCheck());
+			statement.setFloat(3, item.getPrice());
+			statement.setFloat(4, item.getCaloriesPer100g());
+			statement.setString(5, item.vibeCheck());
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
@@ -91,7 +92,7 @@ public class ItemDAO implements Dao<Item> {
 	@Override
 	public Item read(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM item WHERE id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE id = ?");) {
 			statement.setLong(1, id);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
@@ -108,7 +109,7 @@ public class ItemDAO implements Dao<Item> {
 	 * Updates an item in the database
 	 * 
 	 * @param item - takes in an item object, the id field will be used to
-	 *                 update that item in the database
+	 *             update that item in the database
 	 * @return
 	 */
 	@Override

@@ -24,8 +24,8 @@ public class OrderlineDAO implements Dao<Orderline> {
 		Long item_id = resultSet.getLong("item_id");
 		int amount = resultSet.getInt("amount");
 		float line_total = resultSet.getFloat("line_total");
-		Long order_id = resultSet.getLong("order_id");
-		return new Orderline(id, item_id, amount, line_total, order_id);
+		//Long order_id = resultSet.getLong("order_id");
+		return new Orderline(id, item_id, amount, line_total);
 	}
 
 	/**
@@ -72,11 +72,11 @@ public class OrderlineDAO implements Dao<Orderline> {
 	public Orderline create(Orderline orderline) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO orderlines(item_id, amount, line_total, order_id) VALUES (?, ?, ?, ?)");) {
+						.prepareStatement("INSERT INTO orderlines(item_id, amount, line_total) VALUES (?, ?, ?)");) {
 			statement.setLong(1, orderline.getItemId());
 			statement.setInt(2, orderline.getAmount());
 			statement.setFloat(3, orderline.getLineTotal());
-			statement.setLong(4, orderline.getOrderId());
+			//statement.setLong(4, orderline.getOrderId());
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
