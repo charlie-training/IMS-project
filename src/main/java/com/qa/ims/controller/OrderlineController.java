@@ -37,7 +37,7 @@ public class OrderlineController implements CrudController<Orderline> {
     }
 
     /**
-     * Creates a orderline by taking in user input
+     * Creates an orderline by taking in user input
      */
     @Override
     public Orderline create() {
@@ -48,9 +48,9 @@ public class OrderlineController implements CrudController<Orderline> {
         int amount = utils.getInt();
         Item item = itemDAO.read(item_id);
         float line_total = (item.getPrice()) * amount;
-        LOGGER.info("Please enter an order_id");
-        Long order_id = utils.getLong();
-        Orderline orderline = orderlineDAO.create(new Orderline(item_id, amount, line_total, order_id));
+        //LOGGER.info("Please enter an order_id");
+        //Long order_id = utils.getLong();
+        Orderline orderline = orderlineDAO.create(new Orderline(item_id, amount, line_total));
         LOGGER.info("Orderline created");
         return orderline;
     }
@@ -69,8 +69,8 @@ public class OrderlineController implements CrudController<Orderline> {
         Long item_id = orderlineDAO.read(id).getItemId();
         Item item = itemDAO.read(item_id);
         float line_total = (item.getPrice()) * amount;
-        Long order_id = orderlineDAO.read(id).getOrderId();
-        Orderline orderline = orderlineDAO.update(new Orderline(id, item_id, amount, line_total, order_id));
+        //Long order_id = orderlineDAO.read(id).getOrderId();
+        Orderline orderline = orderlineDAO.update(new Orderline(id, item_id, amount, line_total));
         LOGGER.info("Orderline Updated");
         return orderline;
     }

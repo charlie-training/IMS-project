@@ -10,7 +10,7 @@ public class Order {
 		this.setOrderline_id(orderline_id);
 	}
 
-	public Order(Long id, Long orderline_i, float total) {
+	public Order(Long id, Long orderline_id, float total) {
 		this.setOrderline_id(orderline_id);
 	}
 
