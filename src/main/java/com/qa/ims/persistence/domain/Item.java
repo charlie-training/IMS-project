@@ -86,4 +86,9 @@ public class Item {
     public String vibeCheck() {
         return vibe;
     }
+
+    @Override
+    public String toString() {
+        return "id: " + id + " | variety: " + variety + " | origin: " + origin + " | price: " + price + " | calories/100g: " + caloriesPer100g + " | vibe: " + vibe;
+    }
 }

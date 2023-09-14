@@ -10,7 +10,7 @@ public class Order {
 		this.setOrderline_id(orderline_id);
 	}
 
-	public Order(Long id, Long orderline_i, float total) {
+	public Order(Long id, Long orderline_id, float total) {
 		this.setOrderline_id(orderline_id);
 	}
 
@@ -44,7 +44,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "id: " + id + " orderline: " + orderline_id;
+		return "id: " + id + " | orderline ID: " + orderline_id;
 	}
 
 	@Override
