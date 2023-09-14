@@ -24,7 +24,7 @@ public class ItemDAO implements Dao<Item> {
 		String variety = resultSet.getString("variety");
 		String origin = resultSet.getString("origin");
         float price = resultSet.getFloat("price");
-        float caloriesPer100g = resultSet.getFloat("caloriesPer100g");
+        float caloriesPer100g = resultSet.getFloat("calories_per_100g");
         String vibe = resultSet.getString("vibe");
 		return new Item(id, variety, origin, price, caloriesPer100g, vibe);
 	}
@@ -73,7 +73,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item create(Item item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO items(variety, origin, price, caloriesPer100g, vibe) VALUES (?, ?, ?, ?, ?)");) {
+						.prepareStatement("INSERT INTO items(variety, origin, price, calories_per_100g, vibe) VALUES (?, ?, ?, ?, ?)");) {
 			statement.setString(1, item.getVariety());
 			statement.setString(2, item.getOrigin());
             statement.setFloat(3, item.getPrice());
