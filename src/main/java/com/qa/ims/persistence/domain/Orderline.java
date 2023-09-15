@@ -1,5 +1,7 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.Objects;
+
 public class Orderline {
 
 	private Long id;
@@ -7,6 +9,19 @@ public class Orderline {
 	//private Long order_id;
 	private int amount;
 	private float line_total;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Orderline orderline = (Orderline) o;
+		return amount == orderline.amount && Float.compare(line_total, orderline.line_total) == 0 && Objects.equals(id, orderline.id) && Objects.equals(item_id, orderline.item_id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, item_id, amount, line_total);
+	}
 
 	public Orderline(Long item_id, int amount, float line_total) {
 		this.setItemId(item_id);
@@ -63,37 +78,6 @@ public class Orderline {
 	@Override
 	public String toString() {
 		return "id: " + id + " | item ID: " + item_id + " | amount: " + amount + " | line total: " + line_total;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((item_id == null) ? 0 : item_id.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Orderline other = (Orderline) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (getItemId() == null) {
-			if (other.getItemId() != null)
-				return false;
-		} else if (!getItemId().equals(other.getItemId()))
-			return false;
-		return true;
 	}
 
 }

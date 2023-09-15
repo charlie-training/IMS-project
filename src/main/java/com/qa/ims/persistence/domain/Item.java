@@ -1,10 +1,25 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.Objects;
+
 public class Item {
 
     private Long id;
 
     private String variety;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Float.compare(price, item.price) == 0 && Float.compare(caloriesPer100g, item.caloriesPer100g) == 0 && Objects.equals(id, item.id) && Objects.equals(variety, item.variety) && Objects.equals(origin, item.origin) && Objects.equals(vibe, item.vibe);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, variety, origin, price, caloriesPer100g, vibe);
+    }
 
     private String origin;
 

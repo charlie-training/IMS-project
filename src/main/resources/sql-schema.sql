@@ -35,6 +35,6 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders` (
     `orderline_id` INT(11),
     `total` DEC(6,2),
     PRIMARY KEY(`id`),
-    FOREIGN KEY(`orderline_id`) REFERENCES orderlines(`id`)
+    FOREIGN KEY(`orderline_id`) REFERENCES orderlines(`id`) ON DELETE CASCADE
 );
     

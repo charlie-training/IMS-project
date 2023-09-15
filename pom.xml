@@ -15,7 +15,7 @@
 		<dependency>
 			<groupId>nl.jqno.equalsverifier</groupId>
 			<artifactId>equalsverifier</artifactId>
-			<version>3.4.1</version>
+			<version>3.15.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -35,11 +35,11 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.20.0</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>2.13.3</version>
-		</dependency> -->
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
 		<dependency>
 			<groupId>org.mockito</groupId>

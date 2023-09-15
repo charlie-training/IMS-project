@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.dao.CustomerDAO;
 import com.qa.ims.utils.DBUtils;
 
 public class CustomerDAOTest {
