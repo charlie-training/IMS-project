@@ -32,7 +32,7 @@ public class ItemControllerTest {
 	@Test
 	public void testCreate() {
 		final String VARIETY = "First Test", ORIGIN = "testCreate", VIBE = "yum";
-		final float PRICE = 20, CALORIES = 100;
+		final float PRICE = 20f, CALORIES = 10f;
 		final Item created = new Item(VARIETY, ORIGIN, PRICE, CALORIES, VIBE);
 
 		Mockito.when(dao.create(created)).thenReturn(created);

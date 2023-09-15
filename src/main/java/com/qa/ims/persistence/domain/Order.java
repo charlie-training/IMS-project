@@ -12,6 +12,11 @@ public class Order {
 
 	public Order(Long id, Long orderline_id, float total) {
 		this.setOrderline_id(orderline_id);
+		this.setTotal(total);;
+	}
+
+	public Order(Long orderline_id, float total) {
+		this.setOrderline_id(orderline_id);
 	}
 
 	public Order(Long id) {
@@ -38,8 +43,8 @@ public class Order {
 		return this.total;
 	}
 
-	public void setTotal() {
-
+	public void setTotal(float total) {
+		this.total = total;
 	}
 
 	@Override
