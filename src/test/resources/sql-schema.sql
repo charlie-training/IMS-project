@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `items` (
     `variety` VARCHAR(40) NOT NULL,
     `price` DEC(4,2) NOT NULL,
     `origin` VARCHAR(40) NOT NULL,
-    `calories_per_100g` DEC(5,2),
+    `calories_per_100g` DEC(5,2) DEFAULT NULL,
     `vibe` VARCHAR(20) DEFAULT NULL,
     PRIMARY KEY(`id`)
 );
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `items` (
      `amount` INT(2),
      `line_total` DEC(6,2),
      PRIMARY KEY(`id`),
-     FOREIGN KEY(`item_id`) REFERENCES items(`id`)
+     FOREIGN KEY(`item_id`) REFERENCES items(`id`) ON DELETE CASCADE
  );
 
  CREATE TABLE IF NOT EXISTS `orders` (

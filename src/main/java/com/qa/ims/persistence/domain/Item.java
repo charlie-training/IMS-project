@@ -38,14 +38,6 @@ public class Item {
         this.setVibe(vibe);
     }
 
-    public Item(Long id, String variety, float price, float CaloriesPer100g, String vibe) {
-        this.setId(id);
-        this.setVariety(variety);
-        this.setPrice(price);
-        this.setCaloriesPer100g(CaloriesPer100g);
-        this.setVibe(vibe);
-    }
-
     public Item(String variety, String origin, float price, float CaloriesPer100g, String vibe) {
         this.setVariety(variety);
         this.setOrigin(origin);
@@ -54,52 +46,52 @@ public class Item {
         this.setVibe(vibe);
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Long getId() {
         return id;
     }
 
-    public void setVariety(String variety) {
-        this.variety = variety;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getVariety() {
         return variety;
     }
 
-    public void setOrigin(String origin) {
-        this.origin = origin;
+    public void setVariety(String variety) {
+        this.variety = variety;
     }
 
     public String getOrigin() {
         return origin;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
     public float getPrice() {
         return price;
     }
 
-    public void setCaloriesPer100g(float caloriesPer100g) {
-        this.caloriesPer100g = caloriesPer100g;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    public float getCaloriesPer100g() {
-        return caloriesPer100g;
+    public String vibeCheck() {
+        return vibe;
     }
 
     public void setVibe(String vibe) {
         this.vibe = vibe;
     }
 
-    public String vibeCheck() {
-        return vibe;
+    public float getCaloriesPer100g() {
+        return caloriesPer100g;
+    }
+
+    public void setCaloriesPer100g(float caloriesPer100g) {
+        this.caloriesPer100g = caloriesPer100g;
     }
 
     @Override

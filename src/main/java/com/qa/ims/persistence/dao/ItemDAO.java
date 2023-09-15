@@ -67,7 +67,7 @@ public class ItemDAO implements Dao<Item> {
 	/**
 	 * Creates a item in the database
 	 * 
-	 * @param item - takes in a item object. id will be ignored
+	 * @param item - takes in an item object. id will be ignored
 	 */
 	@Override
 	public Item create(Item item) {
@@ -116,9 +116,13 @@ public class ItemDAO implements Dao<Item> {
 	public Item update(Item item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE items SET price = ? WHERE id = ?");) {
-			statement.setFloat(1, item.getPrice());
-			statement.setLong(2, item.getId());
+						.prepareStatement("UPDATE items SET variety = ?, origin = ?, price = ?, calories_per_100g = ?, vibe = ?  WHERE id = ?");) {
+			statement.setString(1, item.getVariety());
+			statement.setString(2, item.getOrigin());
+			statement.setFloat(3, item.getPrice());
+			statement.setFloat(4, item.getCaloriesPer100g());
+			statement.setString(5, item.vibeCheck());
+			statement.setLong(6, item.getId());
 			statement.executeUpdate();
 			return read(item.getId());
 		} catch (Exception e) {

@@ -20,37 +20,36 @@ public class ItemDAOTest {
 		DBUtils.connect();
 		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data.sql");
 	}
-
+	@Test
+	public void testReadAll() {
+		List<Item> expected = new ArrayList<>();
+		expected.add(new Item(1L, "dwarf cavendish", "Canary Islands", 1.20f, 99f, "banone"));
+		assertEquals(expected, DAO.readAll());
+	}
 	@Test
 	public void testCreate() {
-		final Item created = new Item(2L, "testvarietytwo", "testorigintwo", 20.0f, 45, "testing 2 lol");
+		final Item created = new Item(5L, "testvarietytwo", "testorigintwo", 20, 45, "testing 2 lol");
 		assertEquals(created, DAO.create(created));
 	}
 
-	// @Test
-	// public void testReadAll() {
-	// 	List<Item> expected = new ArrayList<>();
-	// 	expected.add(new Item(1L, "jordan", "harrison"));
-	// 	assertEquals(expected, DAO.readAll());
-	// }
 
-	// @Test
-	// public void testReadLatest() {
-	// 	assertEquals(new Item(1L, "jordan", "harrison"), DAO.readLatest());
-	// }
+	 @Test
+	 public void testReadLatest() {
+	 	assertEquals(new Item(1L, "dwarf cavendish", "Canary Islands", 1.20f, 99f, "banone"), DAO.readLatest());
+	 }
 
-	// @Test
-	// public void testRead() {
-	// 	final long ID = 1L;
-	// 	assertEquals(new Item(ID, "jordan", "harrison"), DAO.read(ID));
-	// }
+	 @Test
+	 public void testRead() {
+	 	final long ID = 2L;
+	 	assertEquals(new Item(ID, "dwarf cavendish", "Canary Islands", 1.20f, 99f, "banone"), DAO.read(ID));
+	 }
 
-	// @Test
-	// public void testUpdate() {
-	// 	final Item updated = new Item(1L, "chris", "perrins");
-	// 	assertEquals(updated, DAO.update(updated));
+	 @Test
+	 public void testUpdate() {
+	 	final Item updated = new Item(1L, "testvarietytwo", "testorigintwo", 20, 45, "testing 3 baby!");
+	 	assertEquals(updated, DAO.update(updated));
 
-	//}
+	}
 
 	@Test
 	public void testDelete() {
